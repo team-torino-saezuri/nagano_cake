@@ -25,9 +25,11 @@ class Customers::CartItemsController < ApplicationController
   end
 
   def destroy
+    
   end
 
   def all_destroy
+    
   end
 
 private
