@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   devise_for :customers
   devise_for :admins
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # cari_items
+  resources :cart_items, only:[:index, :update, :create, :destroy] do
+    collection do
+      delete 'all_destroy' => 'cart_items#all_destroy'
+    end
+  end
+
 end
