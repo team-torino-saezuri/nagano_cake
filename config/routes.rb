@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # cari_items
   resources :cart_items, only:[:index, :update, :create, :destroy] do
     collection do
-      delete 'all_destroy' => 'cart_items#all_destroy'
+      delete '/' => 'cart_items#all_destroy'
     end
   end
 
