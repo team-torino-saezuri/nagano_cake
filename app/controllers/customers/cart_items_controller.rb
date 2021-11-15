@@ -21,15 +21,23 @@ class Customers::CartItemsController < ApplicationController
   end
 
   def update
-
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(count: params[:cart_item][:count].to_i)
+    # createアクションで変更した数量へupdate params記述法が？
+    @cart_item.save
+    redirect_to cart_items_path
   end
 
   def destroy
-    
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy
+    redirect_to cart_items_path
   end
 
   def all_destroy
-    
+    @cart_items = current_customer.cart_items
+    @cart_items.destroy_all
+    redirect_to cart_items_path
   end
 
 private
