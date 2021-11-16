@@ -23,8 +23,6 @@ class Customers::CartItemsController < ApplicationController
   def update
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(count: params[:cart_item][:count].to_i)
-    # createアクションで変更した数量へupdate params記述法が'？'
-    # patchで送られたparamsを受け取る
     @cart_item.save
     redirect_to cart_items_path
   end
