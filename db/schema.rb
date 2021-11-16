@@ -10,6 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_11_15_090419) do
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "shopping_cost", default: 800
+    t.integer "total_payment"
+    t.string "name"
+    t.integer "payment_method", default: 0
+    t.integer "status", default: 0
+    t.string "address"
+    t.string "postal_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
