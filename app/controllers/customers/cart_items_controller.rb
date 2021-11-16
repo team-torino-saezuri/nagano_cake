@@ -39,6 +39,7 @@ class Customers::CartItemsController < ApplicationController
     redirect_to cart_items_path
   end
 
+
 private
 
   def cart_items_params

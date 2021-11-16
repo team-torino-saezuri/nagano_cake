@@ -6,3 +6,4 @@ class CartItem < ApplicationRecord
   validates :count, numericality: { only_integer: true }
 
 end
+

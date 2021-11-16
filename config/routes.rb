@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :customers
+  root to: "customers/homes#top"
 
   #customer
   namespace :customer do
@@ -29,3 +30,4 @@ Rails.application.routes.draw do
   end
 
 end
+
