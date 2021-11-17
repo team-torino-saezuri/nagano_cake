@@ -7,13 +7,23 @@ Rails.application.routes.draw do
   end
 end
   devise_for :customers
-  
-   #admin
+  root to: "customers/homes#top"
+
+  #customer
+  namespace :customer do
+    resources :cart_items, only:[:index, :update, :create, :destroy] do
+      collection do
+        delete '/' => 'cart_items#all_destroy'
+      end
+    end
+  end
+
+  #admin
   devise_for :admins, :controllers => {
     :sessions => 'admin/sessions',
     :registrations => 'admin/registrations',
   }
-  
+
   namespace :admin do
     resources :items,only:[:index, :new, :create, :show, :edit, :update]
     resources :orders, only:[:index, :show, :update] do
@@ -26,5 +36,6 @@ end
       end
     end
   end
-  
+
 end
+
