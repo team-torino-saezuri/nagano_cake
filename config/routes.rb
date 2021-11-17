@@ -1,20 +1,29 @@
 Rails.application.routes.draw do
-  resources :orders,only:[:new, :index, :show, :create] do
+  #customer
+  root to: "customers/homes#top"
+  get 'about' => 'customers/homes#about'
+
+  devise_for :customers, :controllers => {:sessions => 'customers/sessions',
+    :registrations => 'customers/registrations',
+    :passwords => 'customers/passwords'
+  }
+  resource :customers,only:[:edit, :update, :show] do
     collection do
-      post 'confirm'
-      get 'thanx'
+      get 'quit'
+      patch 'out'
     end
   end
-end
-  devise_for :customers
-  root to: "customers/homes#top"
-
-  #customer
   namespace :customer do
     resources :cart_items, only:[:index, :update, :create, :destroy] do
       collection do
         delete '/' => 'cart_items#all_destroy'
       end
+    end
+  end
+  resources :orders,only:[:new, :index, :show, :create] do
+    collection do
+      post 'confirm'
+      get 'thanx'
     end
   end
 
@@ -36,6 +45,5 @@ end
       end
     end
   end
-
 end
 
