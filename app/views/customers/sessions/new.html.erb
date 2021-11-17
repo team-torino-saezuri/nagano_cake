@@ -3,7 +3,7 @@
     <div class="col">
       <div class="col-6 offset-3">
         <h3>ログイン</h3>
-        <h6 class="my-3">会員の方はこちらからログイン</h6>
+        <h5 class="my-3">会員の方はこちらからログイン</h5>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field my-2">
             <%= f.label :"メールアドレス" %><br />
@@ -18,7 +18,7 @@
           </div>
           <% end %>
           <div>
-            <h6 class="text-center">会員登録がお済みでない方</h6>
+            <h5 class="text-center">会員登録がお済みでない方</h5>
             <p class="text-center"><%= link_to "こちら", new_customer_registration_path %>からログインしてください。</p>
           </div>
       </div>

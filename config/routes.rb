@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   #customer
   root to: "customers/homes#top"
   get 'about' => 'customers/homes#about'
+  get '/customers/contact' => 'customers/customers#contact'
 
   devise_for :customers, :controllers => {:sessions => 'customers/sessions',
     :registrations => 'customers/registrations',
