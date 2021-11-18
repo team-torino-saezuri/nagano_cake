@@ -35,7 +35,10 @@ Rails.application.routes.draw do
     :registrations => 'admin/registrations',
   }
 
+  get "/admin" => "admin/homes#index"
+
   namespace :admin do
+    resources :customers, only:[:index, :show, :edit, :update]
     resources :items, only:[:index, :new, :create, :show, :edit, :update]
     resources :genres, only:[:index, :new, :create, :show, :edit,]
     resources :orders, only:[:index, :show, :update] do
@@ -49,4 +52,3 @@ Rails.application.routes.draw do
     end
   end
 end
-
