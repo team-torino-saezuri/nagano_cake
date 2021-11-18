@@ -5,7 +5,6 @@ Rails.application.routes.draw do
       get 'thanx'
     end
   end
-end
   devise_for :customers
   root to: "customers/homes#top"
 
@@ -25,7 +24,8 @@ end
   }
 
   namespace :admin do
-    resources :items,only:[:index, :new, :create, :show, :edit, :update]
+    resources :items, only:[:index, :new, :create, :show, :edit, :update]
+    resources :genres, only:[:index, :new, :create, :show, :edit,]
     resources :orders, only:[:index, :show, :update] do
       member do
         get :current_index

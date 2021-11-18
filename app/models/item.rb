@@ -12,4 +12,9 @@ class Item < ApplicationRecord
   validates :introduction, presence: true
   validates :price, presence: true
   validates :genre_id, presence: true
+  
+  def tax_in_price
+    (self.price * 1.08).round
+  end
+  
 end
