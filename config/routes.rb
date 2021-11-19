@@ -29,6 +29,7 @@ Rails.application.routes.draw do
         get 'thanx'
       end
     end
+    resources :addresses, only:[:index, :create, :edit, :update, :destroy]
   end
 
   #admin
