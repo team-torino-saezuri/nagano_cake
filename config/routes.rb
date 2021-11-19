@@ -8,23 +8,26 @@ Rails.application.routes.draw do
     :registrations => 'customers/registrations',
     :passwords => 'customers/passwords'
   }
-  resource :customers,only:[:edit, :update, :show] do
-    collection do
-      get 'quit'
-      patch 'out'
+  scope module: :customer do
+    resources :items,only:[:index, :show]
+    get 'edit/customers' => 'customers#edit'
+    patch 'update/customers' => 'customers#update'
+    resource :customers,only:[:edit, :update, :show] do
+      collection do
+        get 'quit'
+        patch 'out'
+      end
     end
-  end
-  namespace :customer do
     resources :cart_items, only:[:index, :update, :create, :destroy] do
       collection do
         delete '/' => 'cart_items#all_destroy'
       end
     end
-  end
-  resources :orders,only:[:new, :index, :show, :create] do
-    collection do
-      post 'confirm'
-      get 'thanx'
+    resources :orders,only:[:new, :index, :show, :create] do
+      collection do
+        post 'confirm'
+        get 'thanx'
+      end
     end
   end
 
