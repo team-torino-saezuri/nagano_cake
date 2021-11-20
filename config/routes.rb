@@ -18,18 +18,19 @@ Rails.application.routes.draw do
         patch 'out'
       end
     end
+  
     resources :cart_items, only:[:index, :update, :create, :destroy] do
       collection do
         delete '/' => 'cart_items#all_destroy'
       end
     end
-    resources :orders,only:[:new, :index, :show, :create] do
+    resources :orders, only:[:new, :index, :show, :create] do
       collection do
         post 'confirm'
         get 'thanx'
       end
     end
-    resources :addresses,only:[:index, :create, :edit, :update, :destroy]
+    resources :addresses, only:[:index, :create, :edit, :update, :destroy]
   end
 
   #admin
@@ -38,8 +39,12 @@ Rails.application.routes.draw do
     :registrations => 'admin/registrations',
   }
 
+  get "/admin" => "admin/homes#index"
+
   namespace :admin do
-    resources :items,only:[:index, :new, :create, :show, :edit, :update]
+    resources :customers, only:[:index, :show, :edit, :update]
+    resources :items, only:[:index, :new, :create, :show, :edit, :update]
+    resources :genres, only:[:index, :new, :create, :show, :edit,]
     resources :orders, only:[:index, :show, :update] do
       member do
         get :current_index
@@ -51,4 +56,3 @@ Rails.application.routes.draw do
     end
   end
 end
-
