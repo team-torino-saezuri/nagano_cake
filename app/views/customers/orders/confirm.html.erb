@@ -15,7 +15,7 @@
           <% @cart_items.each do |cart| %>
           <tr>
             <td class="text-left">
-              <%= attachment_image_tag(cart.item, :image, size: "60×50") %>
+              <%= attachment_image_tag(cart.item, :image, width: '60') %>
               <%= cart.item.name %>
             </td>
             <td class="text-right">
@@ -32,12 +32,12 @@
         </tbody>
       </table>
     </div>
-    
+
      <div class="col-xs-3 offset-md-1">
       <table class="table">
         <tr>
           <th>送料</th>
-          <td class="text-right">¥<%= @order.shipping_cost %></td>
+          <td class="text-right">¥<%= @order.shopping_cost %></td>
         </tr>
         <tr>
           <th>商品合計</th>
@@ -57,7 +57,28 @@
           <tr>
             <th class="info">支払い方法</th>
             <td class="text-left">
-              <%= "#{@order.postal_code} #{@order.address} #{@order.name}" %>
+              <%= "#{@order.payment_method}" %>
+            </td>
+          </tr>
+          <tr>
+            <th class="info">配送先</th>
+          </tr>
+          <tr>
+            <th class="info">郵便番号</th>
+            <td class="text-left">
+              <%= "〒#{@order.postal_code}" %>
+            </td>
+          </tr>
+          <tr>
+            <th class="info">住所</th>
+            <td class="text-left">
+              <%= "#{@order.address}" %>
+            </td>
+          </tr>
+          <tr>
+            <th class="info">氏名</th>
+            <td class="text-left">
+              <%= "#{@order.name}" %>
             </td>
           </tr>
         </thead>
