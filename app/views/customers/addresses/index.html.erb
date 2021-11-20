@@ -4,7 +4,7 @@
     <div id="error">
       <%= render "layouts/error_message", resource: @address %>
     </div>
-    <%= form_with(model: @address, :url => {:controller => "customer/addresses"}) do |f| %>
+    <%= form_with model: @address, url: addresses_path, method: :post do |f| %>
       <div class="address col-xs-10">
         <div class="form-group col-xs-12">
           <%= f.label :"郵便番号(ハイフンなし)", class: "col-xs-3 control-label" %>
@@ -34,7 +34,7 @@
             </tr>
           </thead>
           <tbody>
-            <% addresses.each do |address| %>
+            <% @addresses.each do |address| %>
               <tr id="destroy-<%= address.id %>">
                 <td><%= address.postal_code %></td>
                 <td class="text-left"><%= address.address %></td>
