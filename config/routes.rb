@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     :registrations => 'customers/registrations',
     :passwords => 'customers/passwords'
   }
-  scope module: :customer do
+  scope module: :customers do
     resources :items,only:[:index, :show]
     get 'edit/customers' => 'customers#edit'
     patch 'update/customers' => 'customers#update'
