@@ -1,5 +1,5 @@
 module ApplicationHelper
-    def full_name(customer)
+  def full_name(customer)
     customer.last_name + customer.first_name
   end
 
@@ -28,7 +28,6 @@ module ApplicationHelper
     end
     return price
   end
-
 
   def billing(order)
     total_price(current_cart) + order.shipping_cost
