@@ -96,9 +96,9 @@ ActiveRecord::Schema.define(version: 2021_11_20_094526) do
     t.integer "total_payment"
     t.string "name"
     t.integer "payment_method", default: 0
-    t.integer "status", default: 0
     t.string "address"
     t.string "postal_code"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
