@@ -17,8 +17,9 @@ class Customers::OrdersController < ApplicationController
   end
 
   def confirm
-    @cart_items = current_customer.cart_items
-    @order = Order.new(customer: current_customer, payment_method: params[:order][:payment_method])
+    @cart_items = current_customer.cart_items.all
+    @order = Order.new
+    @order.payment_method = params[:order][:payment_method]
     @total = 0
     @order.total_payment = @total
     # my_addressに１が入っていれば(自宅)
