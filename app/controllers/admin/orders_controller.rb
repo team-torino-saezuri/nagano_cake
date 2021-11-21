@@ -17,7 +17,7 @@ class Admin::OrdersController < ApplicationController
     redirect_to admin_order_path(@order)
       if @order.status == "入金確認"
         @order.order_details.each do |order_detail|
-          order_detail.update(making_status: 1)
+        order_detail.update(making_status: 1)
         end
       end
   end
