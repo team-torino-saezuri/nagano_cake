@@ -31,7 +31,7 @@ module ApplicationHelper
 
 
   def billing(order)
-    total_price(current_cart) + order.shopping_cost
+    total_price(current_cart) + order.shipping_cost
   end
 
 # タブへの表示
