@@ -38,7 +38,7 @@
   </tr>
   <tr>
     <th>ご請求金額</th>
-    <td><%= @order.total_payment.to_s(:delimited) %>円</td>
+    <td><%= (total_price(@order_details)+800).to_s(:delimited) %>円</td>
   </tr>
 </table>
 <strong>注文内容</strong>
@@ -57,7 +57,7 @@
       <td><%= order_detail.item.name %></td>
       <td><%= order_detail.item.tax_in_price.to_s(:delimited) %>円</td>
       <td><%= order_detail.count %></td>
-      <td><%= order_detail.tax_in_price.to_s(:delimited) %>円</td>
+      <td><%= (order_detail.item.tax_in_price * order_detail.count).to_s(:delimited) %>円</td>
     </tr>
     <% end %>
   </tbody>
