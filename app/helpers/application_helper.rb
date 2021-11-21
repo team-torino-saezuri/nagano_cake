@@ -29,7 +29,6 @@ module ApplicationHelper
     return price
   end
 
-
   def billing(order)
     total_price(current_cart) + order.shipping_cost
   end
