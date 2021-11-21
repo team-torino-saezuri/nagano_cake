@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>sample</title>
+    <title><%= full_title(yield :title) %></title>
+    <%= favicon_link_tag '/favicon.ico' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,8 +10,17 @@
   </head>
 
   <body>
-
-    <%= yield %>
-
+    <div id="wrapper">
+      <%= render "layouts/header" %>
+      <main>
+        <div class="container">
+          <div id="flash">
+            <%= render "layouts/flash" %>
+          </div>
+          <%= yield %>
+        </div>
+      </main>
+      <%= render "layouts/footer" %>
+    </div>
   </body>
 </html>
