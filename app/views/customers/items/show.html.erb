@@ -1,4 +1,4 @@
-<%= attachment_image_tag @item, :image, size: "20×20", class:"icon", fallback: "no_image.jpg" %>
+<%= attachment_image_tag @item, :image, width: '200', class:"icon", fallback: "no_image.jpg" %>
 <h3><%= @item.name %></h3>
 <p><%= @item.introduction %></p>
 <% if @item.is_active == true %>
