@@ -25,7 +25,7 @@ DMM　WEBCAMP チーム開発フェーズ ECサイト制作課題
  Ruby version
 
 # インストール
- git clone 
+ git clone git@github.com:team-torino-saezuri/nagano_cake.git
 
 # 推奨環境
 Ruby ２.５以降
